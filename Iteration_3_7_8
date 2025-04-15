@@ -1,0 +1,28 @@
+//Somme des 100 nombres
+int somme=0;
+
+void setup() {
+  compte2();
+}
+
+void compte2() {
+  for (int y=0; y<=100; y++) {
+    somme+=y;
+  }
+  println(somme);
+}
+
+//Suite des n nombres
+int somme=0;
+int n=200;
+
+void setup() {
+  compte2();
+}
+
+void compte2() {
+  for (int y=0; y<=n; y++) {
+    somme+=y;
+  }
+  println(somme);
+}
