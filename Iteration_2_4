@@ -1,0 +1,31 @@
+int position=0;
+int[] water={2,7};
+boolean isNearWater(int position, int[] water) {
+  for (int x = 0; x < water.length; x++) { //Permet de parcourir le tableau
+    if (position + 1 == water[x]) { // Vérifie si position + 1 est proche d'un élément du tableau water
+      return true;
+    }
+  }
+  return false; // Retourne false si aucune condition n'est remplie
+}
+
+void setup() {
+  go();
+}
+
+void walk () {
+  position+=1;
+}
+
+void jump () {
+  position+=2;
+}
+
+void go() {
+  while (position<7) {
+    if (isNearWater(position, water)) {
+      jump();
+    } else walk();
+    println(position);
+  }
+}
