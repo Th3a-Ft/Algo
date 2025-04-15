@@ -1,0 +1,12 @@
+int entier=63;
+int resultat=0;
+
+void setup() {
+  carre_sup();
+}
+
+void carre_sup() {
+  int y=ceil(sqrt(entier)); //ceil =donne l'arrondi sup
+  resultat=y*y;
+  println(resultat);
+}
