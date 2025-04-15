@@ -1,0 +1,13 @@
+float prix=10.50;
+float prix_total=0;
+float total_recette=0;
+
+void setup() {
+  float total = calculePrix(4) + calculePrix(9);
+  println(total);
+}
+
+float calculePrix(int x) {
+  prix_total= x* prix;
+  return(prix_total);
+}
