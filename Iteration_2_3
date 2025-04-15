@@ -1,0 +1,18 @@
+int groupe=5; //Nombre mini de personnes pour l'application des tarifs de groupe
+float prix=0; //Prix du billet - variable déclarée pour utilisation dans les fonctions
+float prix_total=0; //Donne le résultat de float calculePrix
+
+void setup() {
+  float total = calculePrix(4) + calculePrix(9);
+  println(total);
+}
+
+float calculePrix(int x) {
+  if (x>groupe) { //condition
+    prix=9; //si la condition est respectée le prix est de 9
+  } else {
+    prix=10.50; //sinon le prix est de 9
+  }
+  prix_total= x* prix;
+  return(prix_total); //permet de retourner le résultat de calculPrix à float total
+}
