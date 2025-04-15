@@ -1,0 +1,24 @@
+//For
+void setup() {
+  compte();
+}
+
+void compte() {
+  for (int y=1; y<=1024;y=y*2) { 
+    println(y);
+  }
+}
+
+
+//While
+int y=1;
+void setup() {
+  compte();
+}
+
+void compte() {
+  while (y<=1024) {
+    y=y*2;
+    println(y);
+  }
+}
