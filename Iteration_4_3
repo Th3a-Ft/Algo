@@ -1,21 +1,18 @@
-float[] tableau;
-int nbre_ligne = 10;
-int nbre_mine = 3;
+int[] tableau;
+int x=0;
 
 void setup() {
-  initBoard();
+  initBoard(10, 3);
 }
 
-void initBoard() {
-  tableau = new float[nbre_ligne]; // Crée un tableau de n lignes
-  ArrayList<Integer> position_mine = new ArrayList<Integer>(); //créer un tableau où les positions des mines sont stockées
+void initBoard(int nbre_ligne, int nbre_mine) {
+  tableau=new int[nbre_ligne];
 
-  // Boucles qui permets d'ajouter des mines à des endroits alétoires
-  while (position_mine.size() < nbre_mine) { //size renvoi le nbre d'élément dans ArrayList, donc le nbre de case minée
-    int position = int(random(nbre_ligne));
-    if (!position_mine.contains(position)) { //si la case =99 (donc est minée) alors elle ne peut pas être reminée sinon une mine est ajoutée
-      tableau[position] = 99;
-      position_mine.add(position);
+  while (x<nbre_mine) {  //tant que x est inf à nbre_mine alors la boucle continue
+    int pos_mine=int(random(nbre_ligne));  //renvoi une position aléatoire
+    if (tableau[pos_mine]!=99) {
+      tableau[pos_mine]=99;
+      x++;//remplace la position aléatoire obtenue par 99//si une case minée alors x+1 jusqu'à x=3 et la boucle s'arrête
     }
   }
   println(tableau);
