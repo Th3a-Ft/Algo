@@ -1,0 +1,22 @@
+float[] tableau;
+int nbre_ligne = 10;
+int nbre_mine = 3;
+
+void setup() {
+  initBoard();
+}
+
+void initBoard() {
+  tableau = new float[nbre_ligne]; // Crée un tableau de n lignes
+  ArrayList<Integer> position_mine = new ArrayList<Integer>(); //créer un tableau où les positions des mines sont stockées
+
+  // Boucles qui permets d'ajouter des mines à des endroits alétoires
+  while (position_mine.size() < nbre_mine) { //size renvoi le nbre d'élément dans ArrayList, donc le nbre de case minée
+    int position = int(random(nbre_ligne));
+    if (!position_mine.contains(position)) { //si la case =99 (donc est minée) alors elle ne peut pas être reminée sinon une mine est ajoutée
+      tableau[position] = 99;
+      position_mine.add(position);
+    }
+  }
+  println(tableau);
+}
