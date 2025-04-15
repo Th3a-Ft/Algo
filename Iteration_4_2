@@ -1,0 +1,29 @@
+int position=0;
+boolean[] water={false, true, false, true, false, false};
+
+
+boolean isNearWater(int position, boolean[] water) {
+  return(water[position]);
+}
+
+void setup() {
+  go();
+}
+
+void walk () {
+  position+=1;
+}
+
+void jump () {
+  position+=2;
+}
+
+void go() {
+  while (position<6) {
+    if (isNearWater(position, water)) {
+      jump();
+      println("Eau");
+    } else walk();
+    println("Sol");
+  }
+}
