@@ -1,0 +1,47 @@
+//Get Max
+int[] board = { 7, 2, 9, 10, 1, -4 };
+
+void setup() {
+  getMax();
+}
+
+void getMax() {
+  board=sort(board);
+  println(board[board.length-1]);
+}
+
+//GetSum
+int[] board = { 7, 2, 9, 10, 1, -4 };
+int somme = 0;
+
+void setup() {
+  getSum();
+}
+
+void getSum() {
+  for (int x=0; x<board.length; x++) {
+    somme+=board[x];
+  }
+  println(somme);
+}
+
+//Get Mean
+int[] board = { 7, 2, 9, 10, 1, -4 };
+float somme = 0;
+float moyenne=0;
+
+void setup() {
+  getSum();
+  getMean();
+}
+
+void getSum() {
+  for (int x=0; x<board.length; x++) {
+    somme+=board[x];
+  }
+}
+
+void getMean() {
+  moyenne=somme/(board.length);
+  println(moyenne);
+}
