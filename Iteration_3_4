@@ -1,0 +1,13 @@
+//For
+int y=2;
+
+void setup() {
+  compte();
+}
+
+void compte() {
+  for (; y<=100;y=y*y) { 
+    println(y);
+  }
+}
+
