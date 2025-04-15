@@ -1,0 +1,26 @@
+//Boucle For
+int y=0;
+
+void setup() {
+  compte2();
+}
+
+void compte2() {
+  for (int y=0; y<=100;y=y+1) { 
+    println(y);
+  }
+}
+
+//Boucle While
+int x=0;
+
+void setup() {
+  compte();
+}
+
+void compte() {
+  while (x<100) { 
+    x+=1;
+    println(x);
+  }
+}
