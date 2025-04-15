@@ -1,0 +1,12 @@
+int entier=30;
+int resultat=0;
+
+void setup() {
+  carre_sup();
+}
+
+void carre_sup() {
+  int y=floor(sqrt(entier)); //floor=arrondi inf
+  resultat=y*y;
+  println(resultat);
+}
