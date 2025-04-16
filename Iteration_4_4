@@ -1,0 +1,54 @@
+int[] tableau;
+int x=0;
+int mine_proche=0;
+
+void setup() {
+  initBoard(10, 3);
+  isAMine(0);
+  getMines(0);
+}
+
+void initBoard(int nbre_ligne, int nbre_mine) {
+  tableau=new int[nbre_ligne];
+
+  while (x<nbre_mine) {  //tant que x est inf à nbre_mine alors la boucle continue
+    int pos_mine=int(random(nbre_ligne));  //renvoi une position aléatoire
+    if (tableau[pos_mine]!=99) {
+      tableau[pos_mine]=99; //remplace la position aléatoire obtenue par 99
+      x++; //si une case minée alors x+1 jusqu'à x=3 et la boucle s'arrête
+    }
+  }
+  println(tableau);
+}
+
+void isAMine(int pos) {
+  if (tableau[pos]==99) {
+    println("Mine");
+  } else {
+    println("Pas une mine");
+  }
+}
+
+void getMines(int pos) {
+  if (pos>0 && pos<tableau.length && pos!=99) { //Si la position n'est pas = aux bords du tableau
+    if (tableau[pos-1]==99&&tableau[pos+1]==99) { //ALors on vérifie à droite et à gauche
+      mine_proche=mine_proche+2;  //si une mine à droite et à gauche alors +2
+      println("Nbre mine proche : " +mine_proche);
+    } else if (tableau[pos-1]==99||tableau[pos+1]==99) {
+      mine_proche=mine_proche+1;  //sinon +1
+      println("Nbre mine proche : " +mine_proche);
+    }
+  }
+  if (pos==0) { //si position =0 vérifie que à droite
+    if (tableau[pos+1]==99) {
+      mine_proche=mine_proche+1;
+      println("Nbre mine proche : " +mine_proche);
+    }
+  }
+  if (pos==tableau.length) { //si position = bord du tableau vérifie que à gauche
+    if (tableau[pos+1]==99) {
+      mine_proche=mine_proche+1;
+      println("Nbre mine proche : " +mine_proche);
+    }
+  }
+}
