@@ -1,0 +1,64 @@
+int[][] tableau;
+int m=0;
+int pos_ligne=0;
+int pos_colonne=0;
+
+void setup() {
+  initBoard(5, 5, 10);
+  getMines(2, 4);
+  affichage();
+}
+
+void initBoard(int nbre_ligne, int nbre_colonne, int nbre_mine) {
+  tableau=new int[nbre_ligne][nbre_colonne];
+
+  while (m<nbre_mine) {
+    int pos_mine_ligne=int(random(nbre_ligne));
+    int pos_mine_colonne=int(random(nbre_colonne));
+    if (tableau[pos_mine_ligne][pos_mine_colonne]!=99) {
+      tableau[pos_mine_ligne][pos_mine_colonne]=99;                         //remplace la position aléatoire obtenue par 99
+      m++;                                                                  //si une case minée alors x+1 jusqu'à x=3 et la boucle s'arrête
+    }
+  }
+  for (int i=0; i<tableau.length; i++) {
+    for (int j=0; j<tableau[i].length; j++) {
+    }
+  }
+}
+
+boolean isAMine(int x, int y) {
+  if (tableau[x][y]==99) {
+    //println("Mine");
+    return true;
+  } else {
+    return false;
+    //println("Pas une mine");
+  }
+}
+
+int getMines(int x, int y) {   //dx = direction x
+  int mine_proche=0;
+  for (int dx=-1; dx<=1; dx++) {  //on commence à -1 car l'intervalle est de -1 à 1
+    for (int dy=-1; dy<=1; dy++) {
+      if (x+dx>=0&&x+dx<=tableau.length-1&&y+dy>=0&&y+dy<=tableau.length-1){ //-1 car on commence à 0 le nbre de valeurs //limite du tableau
+      if (isAMine(x+dx, y+dy)) {
+        mine_proche++;
+
+      }
+    }}
+  }
+  return mine_proche;
+}
+
+void affichage() {
+  for (int pos_ligne=0; pos_ligne<tableau.length; pos_ligne++) {
+    for (int pos_colonne=0; pos_colonne<tableau[pos_ligne].length; pos_colonne++) {
+      if (tableau[pos_ligne][pos_colonne]!=99) {
+        print(" "+getMines(pos_ligne, pos_colonne)+" ");
+      } else {
+        print(" X ");
+      }
+    }
+    println();
+  }
+}
